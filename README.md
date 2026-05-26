@@ -1,4 +1,4 @@
-📌 **Project Overview**
+## 📌 **Project Overview**
 
 This project focuses on data cleaning, exploration, and comprehensive business analysis of an e-commerce dataset from Zepto (a prominent quick-commerce platform).
 Using **MySQL Workbench**, I built the database architecture from scratch, handled data anomalies (such as misformatted data and pricing scales).
