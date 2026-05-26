@@ -4,47 +4,30 @@ This project focuses on data cleaning, exploration, and comprehensive business a
 Using **MySQL Workbench**, I built the database architecture from scratch, handled data anomalies (such as misformatted data and pricing scales).
 Executed business-critical queries to extract actionable insights regarding inventory management, pricing strategies, and revenue optimization.
 
-**Project Workflow**
+## 🔄 Project Workflow
 
-Database Creation
+### 1. Database Setup & Architecture
+* **Database Creation:** Initialized a dedicated schema (`zepto_sql_project`) to maintain data isolation.
+* **Data Import:** Ingested the raw `zepto.csv` data and optimized table attributes.
 
-Data Import
+### 2. Exploratory Data Analysis (EDA)
+* **Record Count:** Audited the total dataset size to establish a baseline for cleaning.
+* **Structural Review:** Examined a snapshot of the dataset to verify initial data integrity.
+* **Null Value Audit:** Scanned all key transactional attributes for missing values.
+* **Categorical Mapping:** Extracted unique product categories to map out inventory depth.
+* **Availability Metrics:** Compared in-stock vs. out-of-stock product counts to gauge inventory health.
+* **Duplicate Detection:** Identified repeated product names to track overlapping SKUs.
 
-Data Exploration
+### 3. Data Cleaning & Transformation
+* **Anomaly Elimination:** Isolated and purged invalid transactional records where the MRP or selling price was recorded as zero.
+* **Currency Standardization:** Identified a data scaling issue (prices ingested in paisa) and converted `mrp` and `discountedSellingPrice` to Rupees for downstream accuracy.
 
-Counted the total number of records in the dataset
-
-Viewed a sample of the dataset to understand structure and content
-
-Checked for null values across all columns
-
-Identified distinct product categories available in the dataset
-
-Compared in-stock vs out-of-stock product counts
-
-Detected products present multiple times, representing different SKUs
-
-
-Data Cleaning
-Identified and removed rows where MRP or discounted selling price was zero
-
-Converted mrp and discountedSellingPrice from paise to rupees for consistency and readability
-
-
-
-Business Insights
-Found top 10 best-value products based on discount percentage
-
-Identified high-MRP products that are currently out of stock
-
-Estimated potential revenue for each product category
-
-Filtered expensive products (MRP > ₹500) with minimal discount
-
-Ranked top 5 categories offering highest average discounts
-
-Calculated price per gram to identify value-for-money products
-
-Grouped products based on weight into Low, Medium, and Bulk categories
-
-Measured total inventory weight per product category
+### 4. Business Intelligence & Insights
+* **Discount Optimization:** Ranked the top 10 best-value products using discount percentages.
+* **Stockout Risk Identification:** Tracked high-MRP items currently out of stock to point out direct revenue leakage.
+* **GMV Estimation:** Estimated projected revenue metrics aggregated by product category.
+* **Pricing Strategy Audit:** Flagged high-ticket products (MRP > ₹500) paired with low discounts (< 10%).
+* **Category Performance:** Ranked the top 5 product categories offering the highest average discount.
+* **Unit Economics:** Computed a custom metric for price-per-gram to determine true product value.
+* **Inventory Classification:** Used conditional logic to segment products into "Low", "Medium", and "Bulk" weight categories.
+* **Supply Chain Volume:** Computed the cumulative physical weight of inventory grouped by category.
